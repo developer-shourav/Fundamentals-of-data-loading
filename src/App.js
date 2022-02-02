@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.png";
+import "./App.css";
+import { Button, Spinner } from "react-bootstrap";
+import { useState } from "react";
 
 function App() {
+  const design = {
+    color:"red",
+    width:'400px',
+    backgroundColor:"green"
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="hello"> Hello world</h1>
+      <ExternalUser> </ExternalUser>
+     
+      
+    </div>
+  );
+}
+
+function ExternalUser() {
+  const [user, setUser] = useState([]) ;
+  
+
+
+  return (
+    <div className="hello">
+      <h2>ExternalUser</h2>
     </div>
   );
 }
