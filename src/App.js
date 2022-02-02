@@ -1,7 +1,7 @@
 import logo from "./logo.png";
 import "./App.css";
-import { Button, Spinner } from "react-bootstrap";
-import { useState } from "react";
+import { Button, ListGroup, Spinner } from "react-bootstrap";
+import { useEffect, useState } from "react";
 
 function App() {
   const design = {
@@ -20,13 +20,28 @@ function App() {
 }
 
 function ExternalUser() {
-  const [user, setUser] = useState([]) ;
-  
+ /*  const [user, setUser] = useState([]) ;
+  useEffect(()=>{
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then(res => res.json())
+    .then(data => console.log(data) )
+  },[]) */
+
+  const [comments, setComments] = useState([]);
+
+  useEffect(()=> {
+    fetch("https://jsonplaceholder.typicode.com/todos")
+    .then(res => res.json())
+    .then(data => setComments(data))
+  },[]);
 
 
   return (
     <div className="hello">
-      <h2>ExternalUser</h2>
+      <h2>ExternalUser: {comments.length}</h2>
+      {
+        comments.map( comment => <li style={{marginTop: "30px"}}> {comment.title}</li>)
+      }
     </div>
   );
 }
