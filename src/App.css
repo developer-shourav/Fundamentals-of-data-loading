@@ -66,9 +66,9 @@
 
 .comment-container{
   display: grid;
-  grid-template-columns: repeat(4,1fr);
-  margin-top: 100px;
-  grid-gap: 50px;
+  grid-template-columns: repeat(3,1fr);
+  margin-top: 100px ;
+  grid-gap: 20px;
   
 }
 
@@ -85,7 +85,7 @@
 .comment-text{
   text-align: left;
   color: #282c34;
-  text-transform: uppercase;
-  margin: 20px 0px 20px 0px ;
+ 
+ 
  
 }

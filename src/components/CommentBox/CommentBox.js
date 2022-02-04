@@ -5,10 +5,9 @@ const CommentBox = (props) => {
     return ( 
         
            <div className="comment-section">
-               <h4>User id: {id}</h4>
-               <h4>Name: {name}</h4>
-               <h4>Email: {email}</h4>
-
+               <h2>User id: {id}</h2>
+               <h6>Name: {name}</h6>
+               <h6>Email: {email}</h6>
                <p className='comment-text'
                >{body}</p>
             </div> 
