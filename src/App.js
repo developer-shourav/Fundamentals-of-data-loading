@@ -2,6 +2,7 @@ import logo from "./logo.png";
 import "./App.css";
 import { Button, ListGroup, Spinner } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import CommentBox from "./components/CommentBox/CommentBox";
 
 function App() {
   const design = {
@@ -14,6 +15,8 @@ function App() {
       <h1 className="hello"> Hello world</h1>
       <ExternalUser> </ExternalUser>
       <Counter> </Counter>
+      <LoadComments> </LoadComments>
+    
 
      
       
@@ -21,26 +24,53 @@ function App() {
   );
 }
 
+
+
 const Counter = () => {
-
 const [count, setCount] = useState(0);
+
 const handleIncrease = () => setCount(count + 1);
-  const handleDecrise = () => setCount(count - 1);
-  
+const handleDecrise = () => setCount(count - 1);
 
-  return(
-       <div className="hello" >
-         <h2>Counter : {count}</h2>
-         <button onClick={handleIncrease}>+1</button><br /> <br />
-         <button onClick={handleDecrise}>-1</button>
-       </div>
 
+  return (
+    <div className="hello" >
+           <h2>Counte: {count}</h2>
+           <button  onClick={handleIncrease}> + </button> <br/>
+           <button onClick={handleDecrise}> - </button>
+
+    </div>
   )
 }
 
 
 
+function LoadComments() {
 
+const [comments, setComments] = useState([]);
+
+useEffect(() => {
+   fetch("https://jsonplaceholder.typicode.com/comments")
+   .then( res => res.json())
+   .then( data => setComments(data))
+
+}, []);
+
+
+   return (
+     <div className="comment-container">
+           {
+             comments.slice(0,20).map( comment =>
+               <CommentBox 
+               key={comment.email}
+               comment={comment}
+               
+               > </CommentBox>
+             )
+           }
+     </div>
+   )
+}
 
 
 
