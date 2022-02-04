@@ -50,7 +50,7 @@
   margin: 0 auto;
   margin-top: 50px;
   padding: 40px;
-  text-shadow: 2px 2px 1px rgb(0, 162, 255);
+  /* text-shadow: 2px 2px 1px rgb(0, 162, 255); */
   border-radius: 20px;
   border:5px solid rgb(0, 119, 255);
   transition: all .5s ease;
